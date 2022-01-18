@@ -1,0 +1,18 @@
+:root {
+    --dark: #303030;
+    --dark-x: #000000;
+    --light: #F6F6F6;
+    --light-x: #FFFFFF;
+    --grey: #d4d4d4;
+    --grey-x: #8c8c8c;
+    --red: #e74c3c;
+    --green: #62cb31;
+    --orange: #ffa500;
+    --blue-x: #34495e;
+    --blue: #3498db;
+    --purple: #9b59b6;
+}
+
+div{
+    color: var(--dark);
+}

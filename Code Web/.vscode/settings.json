@@ -1,0 +1,9 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/52049ddb-009c-4ef7-afce-d8c92802a1d0/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/equipoDinamita",
+    "appService.deploySubpath": ".",
+    "liveServer.settings.port": 5501
+}

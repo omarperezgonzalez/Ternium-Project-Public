@@ -1,0 +1,111 @@
+:root {
+    --dark: #303030;
+    --dark-x: #000000;
+    --light: #F6F6F6;
+    --light-x: #FFFFFF;
+    --grey: #d4d4d4;
+    --grey-x: #8c8c8c;
+    --red: #e74c3c;
+    --green: #62cb31;
+    --orange: #ffa500;
+    --blue-x: #34495e;
+    --blue: #3498db;
+    --purple: #9b59b6;
+}
+
+body{
+    font-family: 'Trade Gothic', 'Helvetica', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.wrapper{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.wrapper-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    animation: ani1 24s ease-out;
+}
+
+.wrapper-text{
+    text-align: center;
+    margin-bottom: 350px;
+    padding: 3rem 2rem;
+    border-radius: 0.25rem;
+    opacity: 0;
+    animation: ani2 0.5s ease-out forwards;
+}
+
+.wrapper-text h2,
+.wrapper-text h4{
+    opacity: 0;
+    margin: 100px ;
+}
+
+.wrapper-text h2 {
+    font-family: sans-serif;
+    letter-spacing: 5px;
+    font-size: 65px;
+    line-height: 55px;
+    animation: ani2 0.75s ease-out 2s forwards ;
+}
+
+.wrapper-text h4 {
+    font: 1em sans-serif;
+    font-size: 30px;
+    animation: ani2 0.75s ease-out 2s forwards ;
+    background-color: var(--red);
+}
+
+
+.btn-primary {
+    /* margin-left: 350px; */
+    padding-left: 25px;
+    padding-right: 25px;
+    background-image: linear-gradient(to right, var(--orange) 0%, #F3791E 51%, var(--red) 100%);
+    border: var(--light-x);
+
+}
+
+.btn-primary:hover {
+    background-position: center center center center;
+    background-image: linear-gradient(to right, var(--red) 0%, #F3791E 51%, var(--orange) 100%);
+    animation: ani2 0.75s ease-out 3s forwards ;
+}
+
+.bottoncillo{
+    background-color: transparent;
+}
+
+p{
+    font-family: sans-serif;
+}
+
+.Regis{
+    color: var(--light);
+}
+
+@keyframes ani2{
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes ani1{
+    100%{
+        transform: scale(1.55);
+    }
+}

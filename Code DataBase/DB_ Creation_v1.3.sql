@@ -1,0 +1,164 @@
+-- CREACIÓN DE TABLAS
+
+CREATE TABLE dbo.Avatar (
+    AvatarID INT IDENTITY (1,1) NOT NULL, CONSTRAINT PK_Avatar PRIMARY KEY CLUSTERED (AvatarID),
+    -- Avatar characteristics
+    SkinColor INT NOT NULL,
+    Eyes INT NOT NULL,
+    Eyebrows INT NOT NULL,
+    Mouth INT NOT NULL,
+    HairStyle INT NOT NULL,
+    HairColor INT NOT NULL,
+    FacialHair INT NOT NULL,
+    Clothes INT NOT NULL,
+    FabricColor INT NOT NULL,
+    Glasses INT NOT NULL,
+    GlassesOpac INT NOT NULL,
+    Accesories INT NOT NULL,
+    Tattoos INT NOT NULL,
+    BackgroundColor INT NOT NULL
+);
+
+
+CREATE TABLE dbo.UserInfo (
+    UserInfoID INT IDENTITY (1,1) NOT NULL, CONSTRAINT PK_UserInfo PRIMARY KEY CLUSTERED (UserInfoID),
+    UserBio VARCHAR(140),
+    Position VARCHAR(50),
+    Age INT,
+    PhoneNum VARCHAR(30),
+    JoinDate DATETIME NOT NULL,
+    UserWeb VARCHAR(30),
+    UserGit VARCHAR(30),
+    UserTw VARCHAR(30),
+    UserIg VARCHAR(30),
+    UserFb VARCHAR(30),
+    LastConnection DATETIME
+);
+
+
+CREATE TABLE dbo.QUIZZ (
+    QUIZZID INT IDENTITY (1,1) NOT NULL, CONSTRAINT PK_QUIZZ PRIMARY KEY CLUSTERED (QUIZZID),
+    Name VARCHAR(30) NOT NULL,
+    Score INT NOT NULL
+);
+
+
+CREATE TABLE dbo.RPG (
+    RPGID INT IDENTITY (1,1) NOT NULL, CONSTRAINT PK_RPG PRIMARY KEY CLUSTERED (RPGID),
+    Name VARCHAR(30) NOT NULL,
+    PlayedTime TIME NOT NULL,
+    Level INT NOT NULL,
+    Quests INT NOT NULL,
+    TimeByQ TIME,
+    Score INT NOT NULL
+);
+
+
+CREATE TABLE dbo.DECISIONES (
+    DECISIONESID INT IDENTITY (1,1) NOT NULL, CONSTRAINT PK_DECISIONES PRIMARY KEY CLUSTERED (DECISIONESID),
+    Name VARCHAR(30) NOT NULL,
+    PlayedTime FLOAT NOT NULL,
+    Level INT NOT NULL,
+    Decisions INT NOT NULL,
+    Score INT NOT NULL
+);
+
+
+CREATE TABLE dbo.Game (
+    GameID INT IDENTITY (1,1) NOT NULL, CONSTRAINT PK_Game PRIMARY KEY CLUSTERED (GameID),
+    UserID INT,
+    QUIZZID INT,
+    RPGID INT,
+    DECISIONESID INT,
+    Name VARCHAR(30) NOT NULL,
+    PlayedTime FLOAT NOT NULL,
+    DayScore INT NOT NULL,
+    WeekScore INT NOT NULL,
+    Monthscore INT NOT NULL,
+    OverallScore INT NOT NULL
+);
+
+
+CREATE TABLE dbo.Answer (
+    AnswerID INT IDENTITY (1,1) NOT NULL, CONSTRAINT PK_Answer PRIMARY KEY CLUSTERED (AnswerID),
+    QuestionID INT,
+    CorrectAnswer INT NOT NULL,
+    AnswerContent VARCHAR(50)
+)
+
+
+CREATE TABLE dbo.Question (
+    QuestionID INT IDENTITY (1,1) NOT NULL, CONSTRAINT PK_Question PRIMARY KEY CLUSTERED (QuestionID),
+    Question VARCHAR(50) NOT NULL,
+    Status INT NOT NULL,
+    Theme VARCHAR(30), -- Podría ser un INT para diferentes opciones
+    Difficulty INT NOT NULL
+)
+
+
+CREATE TABLE dbo.Activity (
+    ActivityID INT IDENTITY (1,1) NOT NULL, CONSTRAINT PK_Activity PRIMARY KEY CLUSTERED (ActivityID),
+    ActivityContent VARCHAR(50),
+    Theme VARCHAR(30)
+);
+
+
+CREATE TABLE dbo.[User] (
+    UserID INT IDENTITY (1,1) NOT NULL, CONSTRAINT PK_User PRIMARY KEY CLUSTERED (UserID),
+    AvatarID INT,
+    UserInfoID INT,
+    Name VARCHAR(30) NOT NULL,
+    Email VARCHAR(30) NOT NULL,
+    Password VARCHAR(30) NOT NULL,
+    Status INT NOT NULL,
+    TypeUser INT NOT NULL
+);
+
+
+CREATE TABLE dbo.UserTask (
+    UserTaskID  INT IDENTITY (1,1) NOT NULL, CONSTRAINT PK_UserTask PRIMARY KEY CLUSTERED (UserTaskID),
+    UserID INT,
+    Description VARCHAR(50),
+    TaskDate DATETIME NOT NULL,
+    TaskStatus INT NOT NULL -- Definir el tipo
+);
+
+
+CREATE TABLE dbo.[Log] (
+    LogID  INT IDENTITY (1,1) NOT NULL, CONSTRAINT PK_Log PRIMARY KEY CLUSTERED (LogID),
+    UserID INT,
+    ActivityID INT,
+    AnswerID INT,
+    LogDate DATETIME NOT NULL,
+    LogType INT NOT NULL -- Definir el tipo
+); 
+
+
+
+
+-- CREAR FOREIGN KEYS Y REINICIAR IDs A 1
+
+ALTER TABLE dbo.Game ADD CONSTRAINT FK_Game_User FOREIGN KEY (UserID) REFERENCES dbo.[User] (UserID);
+ALTER TABLE dbo.Game ADD CONSTRAINT FK_Game_QUIZZ FOREIGN KEY (QUIZZID) REFERENCES dbo.QUIZZ (QUIZZID);
+ALTER TABLE dbo.Game ADD CONSTRAINT FK_Game_RPG FOREIGN KEY (RPGID) REFERENCES dbo.RPG (RPGID);
+ALTER TABLE dbo.Game ADD CONSTRAINT FK_Game_DECISIONES FOREIGN KEY (DECISIONESID) REFERENCES dbo.DECISIONES (DECISIONESID);
+ALTER TABLE dbo.Answer ADD CONSTRAINT FK_Answer_Question FOREIGN KEY (QuestionID) REFERENCES dbo.Question (QuestionID);
+ALTER TABLE dbo.[User] ADD CONSTRAINT FK_User_Avatar FOREIGN KEY (AvatarID) REFERENCES dbo.Avatar (AvatarID);
+ALTER TABLE dbo.[User] ADD CONSTRAINT FK_User_UserInfo FOREIGN KEY (UserInfoID) REFERENCES dbo.UserInfo (UserInfoID);
+ALTER TABLE dbo.UserTask ADD CONSTRAINT FK_UserTask_User FOREIGN KEY (UserID) REFERENCES dbo.[User] (UserID);
+ALTER TABLE dbo.Log ADD CONSTRAINT FK_Log_User FOREIGN KEY (UserID) REFERENCES dbo.[User] (UserID);
+ALTER TABLE dbo.Log ADD CONSTRAINT FK_Log_Activity FOREIGN KEY (ActivityID) REFERENCES dbo.Activity (ActivityID);
+ALTER TABLE dbo.Log ADD CONSTRAINT FK_Log_Answer FOREIGN KEY (AnswerID) REFERENCES dbo.Answer (AnswerID);
+
+DBCC CHECKIDENT ('dbo.[Avatar]', RESEED, 1);
+DBCC CHECKIDENT ('dbo.[QUIZZ]', RESEED, 1);
+DBCC CHECKIDENT ('dbo.[RPG]', RESEED, 1);
+DBCC CHECKIDENT ('dbo.[DECISIONES]', RESEED, 1);
+DBCC CHECKIDENT ('dbo.[Game]', RESEED, 1);
+DBCC CHECKIDENT ('dbo.[Question]', RESEED, 1);
+DBCC CHECKIDENT ('dbo.[Answer]', RESEED, 1);
+DBCC CHECKIDENT ('dbo.[Activity]', RESEED, 1);
+DBCC CHECKIDENT ('dbo.[Log]', RESEED, 1);
+DBCC CHECKIDENT ('dbo.[UserInfo]', RESEED, 1);
+DBCC CHECKIDENT ('dbo.[UserTask]', RESEED, 1);
+DBCC CHECKIDENT ('dbo.[User]', RESEED, 1); 

@@ -1,0 +1,13 @@
+/* [class^="con"]{
+    background-color: aqua;
+}
+
+[class^= "col"]{
+    background-color: #333;
+    color: white ;
+    border: black solid 2px;
+} */
+
+.bgdark{
+    background-color: #8c8c8c;
+}

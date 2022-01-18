@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Table V04</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="Table_Fixed_Header/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Table_Fixed_Header/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Table_Fixed_Header/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Table_Fixed_Header/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Table_Fixed_Header/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="Table_Fixed_Header/css/util.css">
+	<link rel="stylesheet" type="text/css" href="Table_Fixed_Header/css/main.css">
+<!--===============================================================================================-->
+	<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
+	<link rel="stylesheet" href="css/styleNavbar.css">
+	<!-- <script>
+		async function load() {
+			const col = document.getElementById("1");
+			const data = {
+    		lugar: 0 };
+ 			const opciones = {
+    		method: "POST",
+    		headers: { "Content-Type": "application/json" },
+    		body: JSON.stringify(data),
+  			};
+			const respuesta = await fetch("/Ranking", opciones) ;
+    	    const datos = await respuesta.json();
+			alert(datos.resultado[0].Position);
+			col.textContent = "datos";
+			
+	};
+		window.onload = load() ;
+	</script> -->
+</head>
+<body>
+	
+	<nav class="navbar navbar-expand-custom navbar-mainbg">
+		<a href="index.html"><img class="imagensr" src="img/Logo_Completo.png" alt="" width="130" height="40" class="d-inline-block align-top" ></a>
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<i class="fas fa-bars text-white"></i>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+				<li class="nav-item active">
+					<a class="nav-link"
+				href="Ranking.html"><i class="far fa-chart-bar"></i>Ranking</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" 
+
+				href="videojuegos.html"><i class="fas fa-gamepad"></i>Videojuegos</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="PerfilR.html"><i class="fas fa-user-circle"></i>Perfil</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="logout" href="index.html"><i class="fas fa-user-circle"></i>Cerrar Sesion</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100 ver1 m-b-110">
+					<div class="table100-head">
+						<table>
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Nombre Completo</th>
+									<th class="cell100 column2">Usuario</th>
+									<th class="cell100 column3">Horas</th>
+									<th class="cell100 column4">Puntaje</th>
+									<th class="cell100 column5">Lugar</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+
+					<div class="table100-body js-pscroll">
+						<table>
+							<tbody>
+								<tr class="row100 body">
+									<td id="1" class="cell100 column1">-----</td>
+									<td id="2" class="cell100 column2">-----</td>
+									<td id="3" class="cell100 column3">-----</td>
+									<td id="4" class="cell100 column4">-----</td>
+									<td class="cell100 column5">1</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="5" class="cell100 column1">-----</td>
+									<td id="6" class="cell100 column2">-----</td>
+									<td id="7" class="cell100 column3">-----</td>
+									<td id="8" class="cell100 column4">-----</td>
+									<td class="cell100 column5">2</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="9" class="cell100 column1">-----</td>
+									<td id="10" class="cell100 column2">-----</td>
+									<td id="11" class="cell100 column3">-----</td>
+									<td id="12" class="cell100 column4">-----</td>
+									<td class="cell100 column5">3</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="13" class="cell100 column1">-----</td>
+									<td id="14" class="cell100 column2">-----</td>
+									<td id="15" class="cell100 column3">-----</td>
+									<td id="16" class="cell100 column4">-----</td>
+									<td class="cell100 column5">4</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="17" class="cell100 column1">-----</td>
+									<td id="18" class="cell100 column2">-----</td>
+									<td id="19" class="cell100 column3">-----</td>
+									<td id="20" class="cell100 column4">-----</td>
+									<td class="cell100 column5">5</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="21" class="cell100 column1">-----</td>
+									<td id="22" class="cell100 column2">-----</td>
+									<td id="23" class="cell100 column3">-----</td>
+									<td id="24" class="cell100 column4">-----</td>
+									<td class="cell100 column5">6</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="25" class="cell100 column1">-----</td>
+									<td id="26" class="cell100 column2">-----</td>
+									<td id="27" class="cell100 column3">-----</td>
+									<td id="28" class="cell100 column4">-----</td>
+									<td class="cell100 column5">7</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="29" class="cell100 column1">-----</td>
+									<td id="30" class="cell100 column2">-----</td>
+									<td id="31" class="cell100 column3">-----</td>
+									<td id="32" class="cell100 column4">-----</td>
+									<td class="cell100 column5">8</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="33" class="cell100 column1">-----</td>
+									<td id="34" class="cell100 column2">-----</td>
+									<td id="35" class="cell100 column3">-----</td>
+									<td id="36" class="cell100 column4">-----</td>
+									<td class="cell100 column5">9</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="37" class="cell100 column1">-----</td>
+									<td id="38" class="cell100 column2">-----</td>
+									<td id="39" class="cell100 column3">-----</td>
+									<td id="40" class="cell100 column4">-----</td>
+									<td class="cell100 column5">10</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="41" class="cell100 column1">-----</td>
+									<td id="42" class="cell100 column2">-----</td>
+									<td id="43" class="cell100 column3">-----</td>
+									<td id="44" class="cell100 column4">-----</td>
+									<td class="cell100 column5">11</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="45" class="cell100 column1">-----</td>
+									<td id="46" class="cell100 column2">-----</td>
+									<td id="47" class="cell100 column3">-----</td>
+									<td id="48" class="cell100 column4">-----</td>
+									<td class="cell100 column5">12</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="49" class="cell100 column1">-----</td>
+									<td id="50" class="cell100 column2">-----</td>
+									<td id="51" class="cell100 column3">-----</td>
+									<td id="52" class="cell100 column4">-----</td>
+									<td class="cell100 column5">13</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="53" class="cell100 column1">-----</td>
+									<td id="54" class="cell100 column2">-----</td>
+									<td id="55" class="cell100 column3">-----</td>
+									<td id="56" class="cell100 column4">-----</td>
+									<td class="cell100 column5">14</td>
+								</tr>
+
+								<tr class="row100 body">
+									<td id="57" class="cell100 column1">-----</td>
+									<td id="58" class="cell100 column2">-----</td>
+									<td id="59" class="cell100 column3">-----</td>
+									<td id="60" class="cell100 column4">-----</td>
+									<td class="cell100 column5">15</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script src="ranking.js"></script>
+	<script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+	<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+	<script  src="Table_Fixed_Header/js/script.js"></script>
+<!--===============================================================================================-->	
+	<script src="Table_Fixed_Header/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+<!--===============================================================================================-->
+	<script src="Table_Fixed_Header/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="Table_Fixed_Header/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+			
+		
+	</script>
+	<script src="logout.js"></script>
+<!--===============================================================================================-->
+	
+
+</body>
+</html>
